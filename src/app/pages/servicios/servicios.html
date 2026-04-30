@@ -1,0 +1,116 @@
+<!-- HEADER -->
+<section class="page-header">
+  <div class="container-page py-12 sm:py-20 text-center">
+    <span class="purpose__kicker" data-aos="fade-up">Nuestros servicios</span>
+    <h1 class="section-title mt-4 max-w-3xl mx-auto" data-aos="fade-up" data-aos-delay="80">
+      Te ayudamos a sistematizar tu negocio
+      <span class="text-brand-primary">sin complicaciones</span>
+    </h1>
+    <p class="section-subtitle mt-6 max-w-2xl mx-auto" data-aos="fade-up" data-aos-delay="160">
+      Cuatro soluciones pensadas para que tu empresa o negocio pequeño dé el salto digital con bajos costos de
+      administración y planes de ejecución ajustados a cada cliente.
+    </p>
+  </div>
+</section>
+
+<!-- SERVICES -->
+<section>
+  <div class="container-page pb-16 sm:pb-24">
+    <div class="grid gap-6 lg:gap-8 md:grid-cols-2">
+      @for (s of services; track s.id; let i = $index) {
+        <article
+          class="service-card"
+          [class.service-card--highlight]="s.highlight"
+          data-aos="fade-up"
+          [attr.data-aos-delay]="i * 80"
+        >
+          @if (s.tag) {
+            <span class="service-card__tag">{{ s.tag }}</span>
+          }
+
+          <div class="service-card__icon">
+            @switch (s.icon) {
+              @case ('dian') {
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="9" y1="13" x2="15" y2="13"></line><line x1="9" y1="17" x2="15" y2="17"></line><polyline points="9 9 10 9 11 9"></polyline></svg>
+              }
+              @case ('web') {
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><line x1="2" y1="12" x2="22" y2="12"></line><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path></svg>
+              }
+              @case ('inventory') {
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"></path><polyline points="3.27 6.96 12 12.01 20.73 6.96"></polyline><line x1="12" y1="22.08" x2="12" y2="12"></line></svg>
+              }
+              @case ('sales') {
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="20" x2="12" y2="10"></line><line x1="18" y1="20" x2="18" y2="4"></line><line x1="6" y1="20" x2="6" y2="16"></line></svg>
+              }
+            }
+          </div>
+
+          <h2 class="service-card__title">{{ s.title }}</h2>
+          <p class="service-card__short">{{ s.short }}</p>
+
+          <ul class="service-card__features">
+            @for (f of s.features; track f) {
+              <li>
+                <svg xmlns="http://www.w3.org/2000/svg" class="check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                <span>{{ f }}</span>
+              </li>
+            }
+          </ul>
+
+          <a [href]="whatsappHref" target="_blank" rel="noopener noreferrer" class="service-card__cta">
+            Cotizar este servicio
+            <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+          </a>
+        </article>
+      }
+    </div>
+  </div>
+</section>
+
+<!-- DIAN DEEP DIVE -->
+<section class="dian-strip">
+  <div class="container-page py-16 sm:py-20">
+    <div class="grid lg:grid-cols-2 gap-10 items-center">
+      <div data-aos="fade-right">
+        <span class="purpose__kicker">¿Por qué facturar electrónicamente?</span>
+        <h2 class="section-title mt-4 text-white">
+          La DIAN está exigiendo a más negocios facturar electrónicamente.
+        </h2>
+        <p class="text-white/80 leading-relaxed mt-5 text-base sm:text-lg">
+          Si te llegó la obligación o quieres adelantarte, nosotros te acompañamos
+          desde cero hasta que estés emitiendo facturas válidas, sin que tengas que entender los detalles técnicos.
+        </p>
+        <div class="mt-8">
+          <a [href]="whatsappHref" target="_blank" rel="noopener noreferrer" class="btn-primary !bg-white !text-brand-dark hover:!bg-brand-gray">
+            Pregunta cómo empezamos
+          </a>
+        </div>
+      </div>
+
+      <div class="dian-stats" data-aos="fade-left">
+        <div class="dian-stat">
+          <span class="dian-stat__num">1</span>
+          <span class="dian-stat__label">Plataforma para vender, facturar e inventariar</span>
+        </div>
+        <div class="dian-stat">
+          <span class="dian-stat__num">100%</span>
+          <span class="dian-stat__label">Acompañamiento personalizado, en tu lenguaje</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section>
+  <div class="container-page py-16 text-center">
+    <h2 class="section-title" data-aos="fade-up">¿No sabes por dónde empezar?</h2>
+    <p class="section-subtitle mt-4 max-w-2xl mx-auto" data-aos="fade-up" data-aos-delay="80">
+      Cuéntanos de tu negocio y te decimos qué servicio te conviene más, sin compromiso.
+    </p>
+    <div class="flex flex-col sm:flex-row gap-3 justify-center mt-8" data-aos="fade-up" data-aos-delay="160">
+      <a routerLink="/contacto" class="btn-primary">Quiero asesoría gratis</a>
+      <a [href]="whatsappHref" target="_blank" rel="noopener noreferrer" class="btn-secondary">Escríbenos por WhatsApp</a>
+    </div>
+  </div>
+</section>

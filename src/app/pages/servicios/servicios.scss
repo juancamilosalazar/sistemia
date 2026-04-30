@@ -1,0 +1,202 @@
+.page-header {
+  background: linear-gradient(180deg, #F4F8FB 0%, #FFFFFF 100%);
+}
+
+.purpose__kicker {
+  display: inline-block;
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: #96BBCE;
+  background: rgba(150, 187, 206, 0.12);
+  padding: 0.4rem 0.85rem;
+  border-radius: 9999px;
+}
+
+.service-card {
+  position: relative;
+  background: white;
+  border: 1px solid rgba(202, 201, 201, 0.4);
+  border-radius: 1.5rem;
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+  transition: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+
+  &:hover {
+    transform: translateY(-6px);
+    box-shadow:
+      0 25px 50px -12px rgba(47, 53, 58, 0.18),
+      0 0 0 1px rgba(150, 187, 206, 0.3);
+
+    .service-card__icon {
+      transform: rotate(-8deg) scale(1.1);
+    }
+  }
+
+  &--highlight {
+    background: linear-gradient(160deg, #2F353A 0%, #1c2024 100%);
+    color: white;
+    border-color: rgba(150, 187, 206, 0.4);
+
+    .service-card__title { color: white; }
+    .service-card__short { color: rgba(255, 255, 255, 0.75); }
+    .service-card__features li { color: rgba(255, 255, 255, 0.85); }
+    .check { color: #96BBCE; }
+
+    .service-card__icon {
+      background: linear-gradient(135deg, #96BBCE 0%, #B8D2DE 100%);
+      color: #2F353A;
+    }
+
+    .service-card__cta {
+      background: white;
+      color: #2F353A;
+
+      &:hover {
+        background: #96BBCE;
+      }
+    }
+  }
+
+  &__tag {
+    position: absolute;
+    top: 1.25rem;
+    right: 1.25rem;
+    font-size: 0.7rem;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    background: linear-gradient(135deg, #96BBCE 0%, #B8D2DE 100%);
+    color: #2F353A;
+    padding: 0.4rem 0.75rem;
+    border-radius: 9999px;
+  }
+
+  &__icon {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 3.5rem;
+    height: 3.5rem;
+    border-radius: 1rem;
+    background: linear-gradient(135deg, #96BBCE 0%, #B8D2DE 100%);
+    color: #2F353A;
+    transition: transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+
+    svg {
+      width: 1.75rem;
+      height: 1.75rem;
+    }
+  }
+
+  &__title {
+    font-family: 'Poppins', sans-serif;
+    font-weight: 700;
+    font-size: 1.5rem;
+    color: #2F353A;
+    margin-top: 1.25rem;
+    line-height: 1.2;
+  }
+
+  &__short {
+    color: rgba(47, 53, 58, 0.7);
+    line-height: 1.65;
+    margin-top: 0.85rem;
+    font-size: 0.95rem;
+  }
+
+  &__features {
+    margin-top: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.65rem;
+    flex: 1;
+
+    li {
+      display: flex;
+      align-items: flex-start;
+      gap: 0.65rem;
+      color: rgba(47, 53, 58, 0.85);
+      font-size: 0.9rem;
+      line-height: 1.5;
+    }
+
+    .check {
+      width: 1.1rem;
+      height: 1.1rem;
+      flex-shrink: 0;
+      color: #96BBCE;
+      margin-top: 0.15rem;
+    }
+  }
+
+  &__cta {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    margin-top: 2rem;
+    padding: 0.85rem 1.5rem;
+    background: rgba(150, 187, 206, 0.15);
+    color: #2F353A;
+    font-weight: 600;
+    border-radius: 9999px;
+    text-decoration: none;
+    transition: all 0.3s ease;
+
+    &:hover {
+      background: #96BBCE;
+      transform: translateY(-2px);
+    }
+  }
+}
+
+.dian-strip {
+  background: #2F353A;
+  background-image:
+    radial-gradient(circle at 10% 20%, rgba(150, 187, 206, 0.15) 0%, transparent 40%),
+    radial-gradient(circle at 90% 80%, rgba(184, 210, 222, 0.12) 0%, transparent 40%);
+}
+
+.dian-stats {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.dian-stat {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 1.25rem;
+  padding: 1.5rem;
+  transition: all 0.3s ease;
+
+  &:hover {
+    background: rgba(255, 255, 255, 0.08);
+    transform: translateX(8px);
+  }
+
+  &__num {
+    font-family: 'Poppins', sans-serif;
+    font-weight: 800;
+    font-size: 3rem;
+    line-height: 1;
+    background: linear-gradient(135deg, #96BBCE 0%, #B8D2DE 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    flex-shrink: 0;
+    min-width: 4.5rem;
+  }
+
+  &__label {
+    color: rgba(255, 255, 255, 0.85);
+    line-height: 1.45;
+    font-size: 0.95rem;
+  }
+}

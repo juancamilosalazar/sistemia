@@ -1,0 +1,85 @@
+<header
+  class="fixed top-0 inset-x-0 z-50 transition-all duration-300"
+  [class.bg-white]="scrolled() || menuOpen()"
+  [class.shadow-md]="scrolled() && !menuOpen()"
+  [class.bg-white\/80]="!scrolled() && !menuOpen()"
+  [class.backdrop-blur-md]="!menuOpen()"
+>
+  <nav class="container-page flex items-center justify-between h-16 sm:h-20" aria-label="Navegación principal">
+    <a routerLink="/" class="flex items-center gap-2 group" (click)="closeMenu()">
+      <span class="logo-mark" aria-hidden="true">
+        <span class="logo-mark__inner">S</span>
+      </span>
+      <span class="font-display font-bold text-xl sm:text-2xl text-brand-dark tracking-tight">
+        {{ brandName }}
+      </span>
+    </a>
+
+    <ul class="hidden md:flex items-center gap-1">
+      @for (link of links; track link.path) {
+        <li>
+          <a
+            [routerLink]="link.path"
+            routerLinkActive="nav-link--active"
+            [routerLinkActiveOptions]="{ exact: link.path === '/' }"
+            class="nav-link"
+          >
+            {{ link.label }}
+          </a>
+        </li>
+      }
+      <li class="ml-2">
+        <a routerLink="/contacto" class="btn-primary !py-2 !px-5 text-sm">
+          Cotiza tu proyecto
+        </a>
+      </li>
+    </ul>
+
+    <button
+      type="button"
+      class="md:hidden p-2 rounded-lg text-brand-dark hover:bg-brand-gray/30 transition-colors"
+      [attr.aria-expanded]="menuOpen()"
+      aria-label="Abrir menú"
+      (click)="toggleMenu()"
+    >
+      <svg xmlns="http://www.w3.org/2000/svg" class="w-7 h-7" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        @if (menuOpen()) {
+          <line x1="18" y1="6" x2="6" y2="18"></line>
+          <line x1="6" y1="6" x2="18" y2="18"></line>
+        } @else {
+          <line x1="3" y1="6" x2="21" y2="6"></line>
+          <line x1="3" y1="12" x2="21" y2="12"></line>
+          <line x1="3" y1="18" x2="21" y2="18"></line>
+        }
+      </svg>
+    </button>
+  </nav>
+
+  <div
+    class="md:hidden overflow-hidden transition-all duration-300 ease-out bg-white"
+    [style.max-height]="menuOpen() ? '24rem' : '0'"
+    [style.border-top]="menuOpen() ? '1px solid rgba(202, 201, 201, 0.4)' : 'none'"
+  >
+    <ul class="container-page py-4 flex flex-col gap-1">
+      @for (link of links; track link.path) {
+        <li>
+          <a
+            [routerLink]="link.path"
+            routerLinkActive="nav-link-mobile--active"
+            [routerLinkActiveOptions]="{ exact: link.path === '/' }"
+            class="nav-link-mobile"
+            (click)="closeMenu()"
+          >
+            {{ link.label }}
+          </a>
+        </li>
+      }
+      <li class="pt-2">
+        <a routerLink="/contacto" class="btn-primary w-full" (click)="closeMenu()">
+          Cotiza tu proyecto
+        </a>
+      </li>
+    </ul>
+  </div>
+</header>
+<div class="h-16 sm:h-20" aria-hidden="true"></div>
