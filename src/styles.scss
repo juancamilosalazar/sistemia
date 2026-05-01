@@ -52,3 +52,11 @@ body {
   background-color: #96BBCE;
   color: #2F353A;
 }
+
+@media (prefers-reduced-motion: reduce) {
+  [data-aos] {
+    opacity: 1 !important;
+    transform: none !important;
+    transition: none !important;
+  }
+}

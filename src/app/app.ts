@@ -28,11 +28,12 @@ export class App implements OnInit {
       once: true,
       offset: 60,
       easing: 'ease-out-cubic',
-      disable: 'phone',
     });
 
     this.router.events
       .pipe(filter(e => e instanceof NavigationEnd))
-      .subscribe(() => AOS.refreshHard());
+      .subscribe(() => {
+        requestAnimationFrame(() => AOS.refreshHard());
+      });
   }
 }
